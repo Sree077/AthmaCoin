@@ -20,7 +20,7 @@ class GenerateCouponCodes(LoginRequiredMixin, SuperuserRequiredMixin, View):
         return random.randint(100000, 999999)
 
     def get_shop_queryset(self):
-        return self.queryset
+        return models.Shop.objects.all()
 
     def check_coupon_codes_exists(self, shop):
         return models.Coupon.objects.filter(shop=shop).exists()
