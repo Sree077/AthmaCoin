@@ -1,0 +1,8 @@
+venv/
+coin/migrations/__pycache__/
+accounts/migrations/__pycache__/
+coin/__pycache__/
+accounts/__pycache__/
+Athma/__pycache__/
+.idea/
+db.sqlite3

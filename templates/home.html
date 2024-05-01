@@ -10,13 +10,20 @@
 
 <div class="profile">
 <h1>Profile </h1>
-<img src="../static/profile-round.svg" alt="profile-svg" srcset="">
+<img src="{% static 'profile-round.svg' %}" alt="profile-svg" srcset="">
 </div>
 <h2>Hey, {{user.first_name}}!</h2>
 <div class="coupon-box">
-<form action="{% url 'claim_coupon' %}" method="post">
+<form action="{% url 'validate_code' %}" method="post">
     {% csrf_token %}
-    <input type="text" placeholder="Enter Your Coupen Code" name="coupon_code"><br>
+    {% for field in form %}
+        {{ field }}<br>
+        {% if field.errors %}
+        {% for error in field.errors %}
+        <span class="invalid-feedback {%if error%}d-block{%endif%}">{{error}}</span>
+        {% endfor %}
+        {%endif%}
+    {% endfor %}
     <button type="submit">Claim Coupon</button>
 </form>
 <h3>Your Athma Coin balance is {{user.AthmaCoin}}</h3>
@@ -24,7 +31,7 @@
 <div class="leaderboard">
 <h4>Leaderboard</h4>
 {% for data in leaderboard %}
-   <h5>{{data}}</h5> 
+   <h5>{{data.first_name}} {{ data.AthmaCoin }}</h5> 
 {% endfor %}
 </div>
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div>
+        {% for shop in shops %}
+            <h3>{{ shop.name }}</h3>
+            {% for coupon in coupons %}
+                {% if shop.id == coupon.shop.id %}
+                    <p> {{ forloop.counter }}. {{ coupon.code }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}

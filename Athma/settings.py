@@ -12,9 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from os import path
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+environ.Env.read_env(".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -37,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts'
+    'accounts',
+    "coin.apps.CoinConfig",
+    'braces'
 ]
 
 MIDDLEWARE = [
@@ -74,13 +79,19 @@ WSGI_APPLICATION = 'Athma.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':  'athma',
-        'USER': 'postgres',
-        'PASSWORD': 'SREEpostgresql@07',
-        'HOST' : 'localhost'
+        'NAME':  env("PGDB_NAME"),
+        'USER': env("PGDB_USER"),
+        'PASSWORD': env("PGDB_PASSWORD"),
+        'HOST' : env("PGDB_HOST")
     }
 }
 
@@ -131,3 +142,6 @@ STATIC_ROOT = BASE_DIR / 'assets'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
+
+NUMBER_OF_COUPONS_PER_SHOP = 100
+COINS_PER_COUPON_CODE = 10
