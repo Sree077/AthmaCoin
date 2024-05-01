@@ -10,9 +10,11 @@
    box-sizing: border-box;
 font-family: "Poppins";
 }
-.message{
+.message-color ul li{
     color: #fff;
+    text-align: center;
 }
+
 .login-h1{
     text-align: center;
     margin-bottom: 1.2em;
