@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-$50dp%sc1p-9s7w1$@#!ema4tf6h@a998b3x&#i@=90#0*uejy
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['athmacoin.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://athmacoin.up.railway.app']
 
 # Application definition
 
