@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import CustomUser
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from coin.forms import CodeForm
 
 def register(request):
     if request.method == 'POST':
@@ -52,8 +53,8 @@ def logout(request):
 
 @login_required
 def profile(request):
-    leaderboard = CustomUser.objects.order_by('-AthmaCoin').values('first_name', 'last_name', 'AthmaCoin')
-    return render(request,"home.html",{"leaderboard": leaderboard}) 
+    leaderboard = CustomUser.objects.all().order_by('-AthmaCoin')
+    return render(request,"home.html",{"leaderboard": leaderboard, "form": CodeForm})
 
 
 
