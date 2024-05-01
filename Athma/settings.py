@@ -26,9 +26,9 @@ environ.Env.read_env("Athma/.env")
 SECRET_KEY = 'django-insecure-$50dp%sc1p-9s7w1$@#!ema4tf6h@a998b3x&#i@=90#0*uejy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://athmacoin.up.railway.app/']
 
 
 # Application definition
