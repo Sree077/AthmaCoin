@@ -56,8 +56,3 @@ def profile(request):
     leaderboard = CustomUser.objects.all().order_by('-AthmaCoin')
     return render(request,"home.html",{"leaderboard": leaderboard, "form": CodeForm})
 
-
-
-
-def claim_athmacoin(request):
-    pass

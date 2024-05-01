@@ -83,7 +83,7 @@ class ValidateCouponCodes(LoginRequiredMixin, FormMixin, View):
             return self.render_to_response(self.get_context_data(form=form))
         if models.UserShop.objects.filter(user=self.request.user, shop=coupon.shop).exists():
             print("shop already claimed")
-            form.add_error("code", f"You have already claimed coupon code from this shop {coupon.shop.name}")
+            form.add_error("code", f"You have already claimed coupon code from this shop: {coupon.shop.name}")
             return self.render_to_response(self.get_context_data(form=form))
         self.change_coupon_status(coupon)
         self.add_points()

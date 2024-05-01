@@ -24,6 +24,7 @@
         {% endfor %}
         {%endif%}
     {% endfor %}
+    <br>
     <button type="submit">Claim Coupon</button>
 </form>
 <h3>Your Athma Coin balance is {{user.AthmaCoin}}</h3>
@@ -45,7 +46,9 @@
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td class="name">{{ user.first_name }} {{ user.last_name }}</td>
-                <td class="coin">{{ user.AthmaCoin }}<img src="{% static 'AthmaCoin.svg' %}" alt="coin">  </td>
+                
+                <td><div class="coin">{{ user.AthmaCoin }}</div><div class="img">
+                    <img src="{% static 'AthmaCoin.svg' %}" alt="coin"></div>  </td>
             </tr>
             {% endfor %}
         </tbody>

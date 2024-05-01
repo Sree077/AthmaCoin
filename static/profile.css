@@ -93,6 +93,7 @@ border-radius: 5px;
 padding: 0.3em;
 }
 table {
+   
     width: 100%; /* Ensures the table spans the entire width of its container */
     border-collapse: collapse; /* Optional: removes space between borders */
 }
@@ -105,13 +106,28 @@ th, td {
 
 th:nth-child(2), td:nth-child(2) {
     padding-left: 20px; /* Adds more space to the left of content in the second column */
-    padding-right: 20px; /* Adds more space to the right of content in the second column */
+    padding-right: 30px; /* Adds more space to the right of content in the second column */
 }
 
-table img{
-    width: 3em;
-    height: 2em;
-    padding-left: 0.5em;
+td:nth-child(3){
+   padding-bottom: 20px;
+} 
+.coin{
+    
+transform:translateY(120%);
+}
+.img{
+
+display: flex;
+margin-left: 1em;
+align-items: center;
+justify-content: center ;
+
+}
+.img img{
+width: 3em;
+height: 2em;
+z-index: 1;
 }
 .main {
     position: fixed;
