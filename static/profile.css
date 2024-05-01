@@ -10,6 +10,7 @@ font-family: "Poppins";
 color: #fff;
 }
 
+
 .profile-a{
 display: flex;
 justify-content: flex-end;
@@ -30,7 +31,7 @@ padding-left: 0.2em;
 h2{
     font-size: 1em;
     padding-left: 0.2em;
-    margin: 1em;
+    margin: 1em 0 -1em 1.5em;
 }
 .profile{
     display: flex;
@@ -46,17 +47,17 @@ h2{
 .coupon-box{
     display: flex;
     flex-direction: column;
-    border: 2px solid #fff;
-    padding: 2em;
+   
+    padding: 1.5em;
    width: 100%;
-z-index: -1;
+
 }
 .coupon-box form{
     line-height: 2em;
    
 }
 .coupon-box form input{
-    line-height: 2em;
+    line-height: 2.5em;
     width: 20%;
     padding-left: 1em;
     background:none;
@@ -75,19 +76,43 @@ z-index: -1;
    
 }
 .leaderboard{
+    margin-left: 2em;
     margin-top: 2em;
-    width: 50%;
+    width: 30%;
 }
 .leaderboard h4{
     font-size: 3em;
-    padding-left: 0.5em;
+    padding-left: 0em;
 }
 .leaderboard h5{
     font-size: 1em;
     padding-left: 2em;
-
+    margin-top: 1em;
+border: 2px solid #fff;
+border-radius: 5px;
+padding: 0.3em;
+}
+table {
+    width: 100%; /* Ensures the table spans the entire width of its container */
+    border-collapse: collapse; /* Optional: removes space between borders */
 }
 
+th, td {
+    padding: 8px; /* Adds padding around the text in each cell */
+    text-align: left; /* Aligns text to the left */
+    border-bottom: 1px solid #ddd; /* Optional: adds a light border under each row */
+}
+
+th:nth-child(2), td:nth-child(2) {
+    padding-left: 20px; /* Adds more space to the left of content in the second column */
+    padding-right: 20px; /* Adds more space to the right of content in the second column */
+}
+
+table img{
+    width: 3em;
+    height: 2em;
+    padding-left: 0.5em;
+}
 .main {
     position: fixed;
     top: 50%;
@@ -117,6 +142,7 @@ z-index: -1;
   
     .coupon-box form input{
 width: 100%;
+
     }
   
 

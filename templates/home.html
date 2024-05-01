@@ -10,7 +10,7 @@
 
 <div class="profile">
 <h1>Profile </h1>
-<img src="../static/profile-round.svg" alt="profile-svg" srcset="">
+<img src="{% static 'profile-round.svg' %}" alt="profile-svg" srcset="">
 </div>
 <h2>Hey, {{user.first_name}}!</h2>
 <div class="coupon-box">
@@ -23,8 +23,25 @@
 </div>
 <div class="leaderboard">
 <h4>Leaderboard</h4>
-{% for data in leaderboard %}
-   <h5>{{data}}</h5> 
-{% endfor %}
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th>Name</th>
+                <th>AthmaCoin </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in leaderboard %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td class="name">{{ user.first_name }} {{ user.last_name }}</td>
+                <td class="coin">{{ user.AthmaCoin }}<img src="{% static 'AthmaCoin.svg' %}" alt="coin">  </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

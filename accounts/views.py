@@ -52,8 +52,8 @@ def logout(request):
 
 @login_required
 def profile(request):
-    leaderboard = CustomUser.objects.order_by('-AthmaCoin').values_list('first_name', 'last_name', 'AthmaCoin')
-    return render(request,"home.html",{"leaderboard": leaderboard})
+    leaderboard = CustomUser.objects.order_by('-AthmaCoin').values('first_name', 'last_name', 'AthmaCoin')
+    return render(request,"home.html",{"leaderboard": leaderboard}) 
 
 
 

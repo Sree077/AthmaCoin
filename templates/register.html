@@ -4,13 +4,13 @@
 <link rel="stylesheet" href="{% static 'register.css' %}">
 
 <div class="header-main">
-    <img src="../static/nav logo 1.svg" alt="logo" srcset="">
+    <img src="{% static 'nav logo 1.svg' %}" alt="logo" srcset="">
 </div>
 <div class="login-h1">
     <h1>Registration</h1>
     </div>
 <div class="background-robo">
-    <img src="../static/robowe 1.svg" alt="">
+    <img src="{% static 'robowe 1.svg' %}" alt="robo">
 </div>
 <div class="main"></div>
 <div class="register-forms">
@@ -24,4 +24,13 @@
     </form>
     <p>Already have an account?<a href="{% url 'login' %}">Login</a></p>
 </div>
+{% if messages %}
+<div class="message-color">
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
 {% endblock %}
