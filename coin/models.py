@@ -26,7 +26,7 @@ class Coupon(models.Model):
 
 
 class UserShop(models.Model):
-    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
 
     def __str__(self):

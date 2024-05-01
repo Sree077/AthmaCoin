@@ -79,21 +79,21 @@ WSGI_APPLICATION = 'Athma.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME':  env("PGDB_NAME"),
-#         'USER': env("PGDB_USER"),
-#         'PASSWORD': env("PGDB_PASSWORD"),
-#         'HOST' : env("PGDB_HOST")
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':  env("PGDB_NAME"),
+        'USER': env("PGDB_USER"),
+        'PASSWORD': env("PGDB_PASSWORD"),
+        'HOST' : env("PGDB_HOST")
+    }
+}
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
