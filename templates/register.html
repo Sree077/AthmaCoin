@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'register.css' %}">
+
+<div class="header-main">
+    <img src="../static/nav logo 1.svg" alt="logo" srcset="">
+</div>
+<div class="login-h1">
+    <h1>Registration</h1>
+    </div>
+<div class="background-robo">
+    <img src="../static/robowe 1.svg" alt="">
+</div>
+<div class="main"></div>
+<div class="register-forms">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="fname" placeholder="Full name"><br>
+        <input type="text" name="Phno" placeholder="Phone number"><br>
+        <input type="email" name="email" placeholder="Email id"><br>
+        <input type="password" name="pass1" placeholder="Password"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <p>Already have an account?<a href="{% url 'login' %}">Login</a></p>
+</div>
+{% endblock %}

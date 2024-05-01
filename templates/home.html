@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'profile.css' %}">
+<div class="profile-a">
+<a href="{% url 'logout'%}">Logout</a><br>
+</div>
+
+<div class="main"></div>
+
+<div class="profile">
+<h1>Profile </h1>
+<img src="../static/profile-round.svg" alt="profile-svg" srcset="">
+</div>
+<h2>Hey, {{user.first_name}}!</h2>
+<div class="coupon-box">
+<form action="{% url 'claim_coupon' %}" method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter Your Coupen Code" name="coupon_code"><br>
+    <button type="submit">Claim Coupon</button>
+</form>
+<h3>Your Athma Coin balance is {{user.AthmaCoin}}</h3>
+</div>
+<div class="leaderboard">
+<h4>Leaderboard</h4>
+{% for data in leaderboard %}
+   <h5>{{data}}</h5> 
+{% endfor %}
+</div>
+{% endblock %}
