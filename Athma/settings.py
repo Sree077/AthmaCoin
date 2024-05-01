@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-$50dp%sc1p-9s7w1$@#!ema4tf6h@a998b3x&#i@=90#0*uejy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'Athma.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':  env("PGDB_NAME"),
-        'USER': env("PGDB_USER"),
-        'PASSWORD': env("PGDB_PASSWORD"),
-        'HOST' : env("PGDB_HOST")
+        'NAME':  env("PGDATABASE"),
+        'USER': env("PGUSER"),
+        'PASSWORD': env("PGPASSWORD"),
+        'HOST' : env("PGHOST")
     }
 }
 
