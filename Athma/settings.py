@@ -26,9 +26,9 @@ environ.Env.read_env("Athma/.env")
 SECRET_KEY = 'django-insecure-$50dp%sc1p-9s7w1$@#!ema4tf6h@a998b3x&#i@=90#0*uejy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['athmacoin.up.railway.app']
 
 
 # Application definition
@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     "coin.apps.CoinConfig",
-    'braces'
+    'braces',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'Athma.urls'
@@ -78,13 +80,6 @@ WSGI_APPLICATION = 'Athma.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -93,6 +88,12 @@ DATABASES = {
         'PASSWORD': env("PGPASSWORD"),
         'HOST' : env("PGHOST")
     }
+}
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
 }
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
